@@ -83,7 +83,7 @@ public class App {
      * @return треугольник существует/не существует
      */
     public static String triangle(Integer a, Integer b, Integer c) {
-        if (a + b > c || a + c > b || b + c > a) {
+        if (a + b > c && a + c > b && b + c > a) {
             return "треугольник со сторонами (" + a + ";" + b + ";" + c + ") существует";
         } else {
             return "треугольник со сторонами (" + a + ";" + b + ";" + c + ") не существует";
@@ -144,7 +144,7 @@ public class App {
         System.out.println(min(0, 3, -1));
         System.out.println(leapYear(2024));
         System.out.println(quadrant(3, -5));
-        System.out.println(triangle(1, 0, 0));
+        System.out.println(triangle(1, 2, 100));
         System.out.println(equation(1, 3, -4));
         System.out.println("Значение функции равно " + func(1));
         System.out.println(numOrder(34, 1, 11));
