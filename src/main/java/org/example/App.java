@@ -1,11 +1,10 @@
 package org.example;
 
-import java.util.Arrays;
-
 /**
- * Hello world!
+ * Класс Main
  */
 public class App {
+
     /**
      * Функция поиска минимума среди трех чисел
      *
@@ -14,17 +13,15 @@ public class App {
      * @param c третье число
      * @return минимальное из трех чисел
      */
-
     private static Integer min(Integer a, Integer b, Integer c) {
         Integer result;
         if (a <= b && a <= c) {
-            result = a;
-        } else if (b <= a && b <= c) {
-            result = b;
+            return a;
+        } else if (b <= c) {
+            return b;
         } else {
-            result = c;
+            return c;
         }
-        return result;
     }
 
     /**
@@ -39,7 +36,6 @@ public class App {
         } else {
             return year + " год не является високосным";
         }
-
     }
 
     /**
@@ -68,10 +64,12 @@ public class App {
             } else {
                 res = "III четверть";
             }
-        } else if (y > 0) {
-            res = "I четверть";
         } else {
-            res = "IV четверть";
+            if (y > 0) {
+                res = "I четверть";
+            } else {
+                res = "IV четверть";
+            }
         }
         return res;
     }
@@ -124,6 +122,11 @@ public class App {
      */
     public static String numOrder(Integer a, Integer b, Integer c) {
         Integer x;
+        if (a > c) {
+            x = a;
+            a = c;
+            c = x;
+        }
         if (a > b) {
             x = a;
             a = b;
