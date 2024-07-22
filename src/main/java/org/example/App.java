@@ -137,7 +137,5 @@ public class App {
         System.out.println(evenNumbers(array));
         remove(array, 1);
         reverseArray(array);
-
-
     }
 }
