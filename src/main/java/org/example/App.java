@@ -1,13 +1,153 @@
 package org.example;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.example.Apps;
+
+import java.util.Random;
+
 /**
- * Hello world!
- *
+ * Класс Main
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+public class App {
+    private static Logger logger = LoggerFactory.getLogger(App.class);
+
+    /**
+     * Функция печати массива
+     *
+     * @param array массив
+     * @return массив в виде строки
+     */
+    private static void printArray(int[] array) {
+        String str = "(";
+        for (int i = 0; i < array.length; i++) {
+            str = str + array[i] + " ";
+        }
+        str = str.trim() + ")";
+        logger.info(str);
+    }
+
+    /**
+     * Функция генерации массива
+     *
+     * @param length длина массива
+     * @param min    минимальный элемент массива
+     * @param max    максимльный элемент массива
+     * @return сгенерированный массив
+     */
+    public static int[] rndArray(Integer length, Integer min, Integer max) {
+        int[] array = new int[length];
+        Random rnd = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = min + rnd.nextInt((max - min) + 1);
+        }
+        return array;
+    }
+
+    /**
+     * Функция пузырьковой сортировки массива
+     *
+     * @param array массив
+     */
+    public static void bubleSort(int[] array) {
+        Integer x;
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j + 1] < array[j]) {
+                    x = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = x;
+                }
+            }
+        }
+        printArray(array);
+    }
+
+    /**
+     * Функция поиска суммы элементов массива
+     *
+     * @param array массив, сумму элементов которого необходимо вычислить
+     * @return вычисленная сумма
+     */
+    public static Integer sumElement(int[] array) {
+        Integer a = 0;
+        for (int i = 0; i < array.length; i++) {
+            a = a + array[i];
+        }
+        return a;
+    }
+
+    /**
+     * Функция поиска чётных элементов массива
+     *
+     * @param array введенный массив
+     * @return чётные элементы массива
+     */
+    public static String evenNumbers(int[] array) {
+        String str = "";
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                str = str + array[i] + " ";
+            }
+        }
+        if (str == "") {
+            return "У массива нет четных элементов";
+        } else {
+            return String.format("Чётные элементы массива: %s", str.trim());
+        }
+    }
+
+    /**
+     * Функция удаления элемента массива по индексу
+     *
+     * @param array исходный массив
+     */
+    public static void remove(int[] array, int idx) {
+        int[] newArray = new int[array.length - 1];
+        for (int i = 0; i < array.length; i++) {
+            if (i != idx) {
+                int newIndex = (i < idx) ? i : i - 1;
+                newArray[newIndex] = array[i];
+            }
+        }
+        printArray(newArray);
+    }
+
+    /**
+     * Функция изменения порядка следования элементов массива
+     *
+     * @param array исходный массив
+     */
+    public static void reverseArray(int[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
+            int temp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = temp;
+        }
+        printArray(array);
+    }
+    public static void reverseString(String str){
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length / 2; i++) {
+            char temp = charArray[i];
+            charArray[i] = charArray[charArray.length - 1 - i];
+            charArray[charArray.length - 1 - i] = temp;
+        }
+        String newStr = new String(charArray);
+        logger.info(newStr);
+    }
+
+    public static void main(String[] args) {
+        int[] array = new int[10];
+        array = rndArray(10, 7, 30);
+        printArray(array);
+        bubleSort(array);
+        logger.info(String.format("Сумма элементов массива равна: %d", sumElement(array)));
+        logger.info(evenNumbers(array));
+        remove(array, 1);
+        reverseArray(array);
+        logger.error(org.example.Apps.printArrays(array));
+        String str = "Hello world";
+        reverseString(str);
     }
 }
