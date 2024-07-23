@@ -25,11 +25,11 @@ public class App {
      * Функция генерации массива
      *
      * @param length длина массива
-     * @param max    максимльный элемент массива
      * @param min    минимальный элемент массива
+     * @param max    максимльный элемент массива
      * @return сгенерированный массив
      */
-    public static int[] rndArray(Integer length, Integer max, Integer min) {
+    public static int[] rndArray(Integer length, Integer min, Integer max) {
         int[] array = new int[length];
         Random rnd = new Random();
         for (int i = 0; i < array.length; i++) {
@@ -63,7 +63,7 @@ public class App {
      * @param array массив, сумму элементов которого необходимо вычислить
      * @return вычисленная сумма
      */
-    public static Integer sumArray(int[] array) {
+    public static Integer sumElement (int[] array) {
         Integer a = 0;
         for (int i = 0; i < array.length; i++) {
             a = a + array[i];
@@ -82,8 +82,6 @@ public class App {
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
                 str = str + array[i] + " ";
-            } else {
-                continue;
             }
         }
         if (str == "") {
@@ -102,12 +100,7 @@ public class App {
         int[] newArray = new int[array.length - 1];
         for (int i = 0; i < array.length; i++) {
             if (i != idx) {
-                int newIndex;
-                if (i < idx) {
-                    newIndex = i;
-                } else {
-                    newIndex = i - 1;
-                }
+                int newIndex = (i < idx) ? i : i - 1;
                 newArray[newIndex] = array[i];
             }
         }
@@ -128,14 +121,26 @@ public class App {
         printArray(array);
     }
 
+    public static void reverseString(String str) {
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length / 2; i++) {
+            char temp = charArray[i];
+            charArray[i] = charArray[charArray.length - 1 - i];
+            charArray[charArray.length - 1 - i] = temp;
+        }
+        String newStr = new String(charArray);
+        System.out.println(newStr);
+    }
+
     public static void main(String[] args) {
         int[] array = new int[3];
-        array = rndArray(10, 30, 7);
+        array = rndArray(10, 7, 30);
         printArray(array);
         bubleSort(array);
-        System.out.println(String.format("Сумма элементов массива равна: %d", sumArray(array)));
+        System.out.println(String.format("Сумма элементов массива равна: %d", sumElement (array)));
         System.out.println(evenNumbers(array));
         remove(array, 1);
         reverseArray(array);
+        reverseString("Hello world");
     }
 }
