@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.example.Apps;
 
+import java.lang.reflect.Array;
 import java.util.Random;
 
 /**
@@ -18,13 +19,13 @@ public class App {
      * @param array массив
      * @return массив в виде строки
      */
-    private static void printArray(int[] array) {
-        String str = "(";
+    private static String printArray(int[] array) {
+        String result = "(";
         for (int i = 0; i < array.length; i++) {
-            str = str + array[i] + " ";
+            result = result + array[i] + " ";
         }
-        str = str.trim() + ")";
-        logger.info(str);
+        result = result.trim() + ")";
+        return result;
     }
 
     /**
@@ -49,18 +50,18 @@ public class App {
      *
      * @param array массив
      */
-    public static void bubleSort(int[] array) {
-        Integer x;
+    public static int[] bubleSort(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (array[j + 1] < array[j]) {
-                    x = array[j];
+                    Integer temp;
+                    temp = array[j];
                     array[j] = array[j + 1];
-                    array[j + 1] = x;
+                    array[j + 1] = temp;
                 }
             }
         }
-        printArray(array);
+        return array;
     }
 
     /**
@@ -69,12 +70,12 @@ public class App {
      * @param array массив, сумму элементов которого необходимо вычислить
      * @return вычисленная сумма
      */
-    public static Integer sumElement(int[] array) {
-        Integer a = 0;
+    public static Integer sumArray(int[] array) {
+        Integer sumElement = 0;
         for (int i = 0; i < array.length; i++) {
-            a = a + array[i];
+            sumElement = sumElement + array[i];
         }
-        return a;
+        return sumElement;
     }
 
     /**
@@ -84,16 +85,16 @@ public class App {
      * @return чётные элементы массива
      */
     public static String evenNumbers(int[] array) {
-        String str = "";
+        String result = "";
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
-                str = str + array[i] + " ";
+                result = result + array[i] + " ";
             }
         }
-        if (str == "") {
+        if (result.equals("")) {
             return "У массива нет четных элементов";
         } else {
-            return String.format("Чётные элементы массива: %s", str.trim());
+            return String.format("Чётные элементы массива: %s", result.trim());
         }
     }
 
@@ -102,7 +103,7 @@ public class App {
      *
      * @param array исходный массив
      */
-    public static void remove(int[] array, int idx) {
+    public static int[] removeElement(int[] array, int idx) {
         int[] newArray = new int[array.length - 1];
         for (int i = 0; i < array.length; i++) {
             if (i != idx) {
@@ -110,7 +111,7 @@ public class App {
                 newArray[newIndex] = array[i];
             }
         }
-        printArray(newArray);
+        return newArray;
     }
 
     /**
@@ -118,15 +119,15 @@ public class App {
      *
      * @param array исходный массив
      */
-    public static void reverseArray(int[] array) {
+    public static int[] reverseArray(int[] array) {
         for (int i = 0; i < array.length / 2; i++) {
             int temp = array[i];
             array[i] = array[array.length - 1 - i];
             array[array.length - 1 - i] = temp;
         }
-        printArray(array);
+        return array;
     }
-    public static void reverseString(String str){
+    public static String reverseString(String str){
         char[] charArray = str.toCharArray();
         for (int i = 0; i < charArray.length / 2; i++) {
             char temp = charArray[i];
@@ -134,20 +135,20 @@ public class App {
             charArray[charArray.length - 1 - i] = temp;
         }
         String newStr = new String(charArray);
-        logger.info(newStr);
+        return newStr;
     }
 
     public static void main(String[] args) {
         int[] array = new int[10];
         array = rndArray(10, 7, 30);
-        printArray(array);
-        bubleSort(array);
-        logger.info(String.format("Сумма элементов массива равна: %d", sumElement(array)));
+        logger.info(printArray(array));
+        logger.info(printArray(bubleSort(array)));
+        logger.info(String.format("Сумма элементов массива равна: %d", sumArray(array)));
         logger.info(evenNumbers(array));
-        remove(array, 1);
-        reverseArray(array);
-        logger.error(org.example.Apps.printArrays(array));
+        logger.info(printArray(removeElement(array, 1)));
+        logger.info(printArray(reverseArray(array)));
+        logger.info(org.example.Apps.printArrays(array));
         String str = "Hello world";
-        reverseString(str);
+        logger.info(reverseString(str));
     }
 }
