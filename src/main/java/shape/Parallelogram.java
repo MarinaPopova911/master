@@ -1,8 +1,12 @@
 package shape;
 
 public class Parallelogram extends Rectangle {
+    public Double a;
+    public Double b;
+
     public Parallelogram(Double a, Double b) {
-        super(a, b);
+        this.a = a;
+        this.b = b;
     }
 
     @Override

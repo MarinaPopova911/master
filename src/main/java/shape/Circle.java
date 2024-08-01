@@ -1,8 +1,10 @@
 package shape;
 
 public class Circle extends Shape {
+    public Double a;
+
     public Circle(Double a) {
-        super(a);
+        this.a = a;
     }
 
     @Override

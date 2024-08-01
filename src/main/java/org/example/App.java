@@ -7,7 +7,7 @@ import shape.*;
  */
 public class App {
     public static void main(String[] args) {
-        Shape[] shapes = {new Foursquare(2.0, 2.0),
+        Shape[] shapes = {new Foursquare(2.0),
                 new Rectangle(2.0, 5.0),
                 new Triangle(2.5, 3.9),
                 new Parallelogram(2.0, 5.0),

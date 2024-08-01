@@ -1,8 +1,15 @@
 package shape;
 
 public class Rectangle extends Foursquare {
+    public Double a;
+    public Double b;
+
     public Rectangle(Double a, Double b) {
-        super(a, b);
+        this.a = a;
+        this.b = b;
+    }
+
+    public Rectangle() {
     }
 
     @Override
