@@ -2,15 +2,15 @@ package shape;
 
 public class Triangle extends Shape {
     public Double a;
-    public Double b;
+    public Double h;
 
-    public Triangle(Double a, Double b) {
+    public Triangle(Double a, Double h) {
         this.a = a;
-        this.b = b;
+        this.h = h;
     }
 
     @Override
     public Double square() {
-        return (a * b) / 2;
+        return (a * h) / 2;
     }
 }

@@ -1,7 +1,6 @@
 package shape;
 
 public class Rectangle extends Foursquare {
-    public Double a;
     public Double b;
 
     public Rectangle(Double a, Double b) {

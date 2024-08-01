@@ -1,8 +1,6 @@
 package shape;
 
 public class Parallelogram extends Rectangle {
-    public Double a;
-    public Double b;
 
     public Parallelogram(Double a, Double b) {
         this.a = a;

@@ -1,14 +1,14 @@
 package shape;
 
 public class Circle extends Shape {
-    public Double a;
+    public Double r;
 
-    public Circle(Double a) {
-        this.a = a;
+    public Circle(Double r) {
+        this.r = r;
     }
 
     @Override
     public Double square() {
-        return Math.PI * Math.pow(a, 2);
+        return Math.PI * Math.pow(r, 2);
     }
 }
