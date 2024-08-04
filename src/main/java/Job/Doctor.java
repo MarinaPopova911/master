@@ -1,44 +1,36 @@
 package Job;
 
 public class Doctor extends Job implements higherEducation, medicalCertificate {
+    public String nameJob;
+    public String doc;
 
     public Doctor(String nameJob) {
-        super(nameJob);
+        this.nameJob = nameJob;
     }
 
-    public String getTypeDoc() {
-        Documents doc = new Documents();
-        doc.setTypeDoc("Диплом");
-        return doc.getTypeDoc();
+    public Doctor(String nameJob, String doc) {
+        this.nameJob = nameJob;
+        this.doc = doc;
     }
 
-    public String getSerialDoc() {
+    public String getDoc() {
         Documents doc = new Documents();
-        doc.setSerialDoc("I-5F");
-        return doc.getSerialDoc();
-    }
-
-    public String getNumberDoc() {
-        Documents doc = new Documents();
-        doc.setNumberDoc("5656");
-        return doc.getNumberDoc();
+        doc.setTypeDoc("диплом");
+        doc.setNumberDoc("1234");
+        doc.setSerialDoc("II-12AA");
+        return String.format(" документ: %s серия: %s номер: %s", doc.getTypeDoc(), doc.getSerialDoc(), doc.getNumberDoc());
     }
 
     public String getMedTypeDoc() {
         Documents doc = new Documents();
-        doc.setTypeDoc("Сертификат");
-        return doc.getTypeDoc();
+        doc.setTypeDoc("cертификат");
+        doc.setNumberDoc("1111");
+        doc.setSerialDoc("I-5AC");
+        return String.format(" документ: %s серия: %s номер: %s", doc.getTypeDoc(), doc.getSerialDoc(), doc.getNumberDoc());
     }
 
-    public String getMedSerialDoc() {
-        Documents doc = new Documents();
-        doc.setSerialDoc("II-5GF");
-        return doc.getSerialDoc();
-    }
-
-    public String getMedNumberDoc() {
-        Documents doc = new Documents();
-        doc.setNumberDoc("99999");
-        return doc.getNumberDoc();
+    @Override
+    public String toString() {
+        return nameJob + getMedTypeDoc() + getDoc();
     }
 }

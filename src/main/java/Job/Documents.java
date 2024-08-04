@@ -28,5 +28,4 @@ public class Documents {
     public void setNumberDoc(String numberDoc) {
         this.numberDoc = numberDoc;
     }
-
 }

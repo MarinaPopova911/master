@@ -1,25 +1,30 @@
 package Job;
 
-public class Cook extends Job implements medicalCertificate{
+import javax.print.Doc;
+
+public class Cook extends Job implements medicalCertificate {
+    public String nameJob;
+    public String doc;
 
     public Cook(String nameJob) {
-        super(nameJob);
+        this.nameJob = nameJob;
     }
+
+    public Cook(String nameJob, Documents doc) {
+        this.nameJob = nameJob;
+        this.doc = String.valueOf(doc);
+    }
+
     public String getMedTypeDoc() {
         Documents doc = new Documents();
-        doc.setTypeDoc("Сертификат");
-        return doc.getTypeDoc();
+        doc.setTypeDoc("cертификат");
+        doc.setNumberDoc("6767");
+        doc.setSerialDoc("I-5AC");
+        return String.format(" документ: %s серия: %s номер: %s", doc.getTypeDoc(), doc.getSerialDoc(), doc.getNumberDoc());
     }
 
-    public String getMedSerialDoc() {
-        Documents doc = new Documents();
-        doc.setSerialDoc("II-3R");
-        return doc.getSerialDoc();
-    }
-
-    public String getMedNumberDoc() {
-        Documents doc = new Documents();
-        doc.setNumberDoc("5555");
-        return doc.getNumberDoc();
+    @Override
+    public String toString() {
+        return nameJob + getMedTypeDoc();
     }
 }
