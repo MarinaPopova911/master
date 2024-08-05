@@ -1,6 +1,5 @@
 package org.example;
 
-import Job.Job;
 import Job.Cook;
 import Job.Doctor;
 import Job.Engineer;
@@ -14,6 +13,7 @@ import org.slf4j.LoggerFactory;
  * Job
  */
 public class App {
+    private static Logger logger = LoggerFactory.getLogger(App.class);
     public static void main(String[] args) {
         Person[] pers = {new Person("Иванов Иван Иванович", 45, new Cook(new Document("Сертификат", "I-4BC", "676767"))),
                 new Person("Петров Петр Петрович", 34, new Doctor(new Document("Диплом", "I-5AC", "545454"), new Document("Сертификат", "I-4BB", "3333"))),
@@ -21,7 +21,7 @@ public class App {
                 new Person("Александров Александр Александрович", 40, new Loader())};
 
         for (int i = 0; i < pers.length; i++) {
-            System.out.println(pers[i].person());
+            logger.info(pers[i].person());
         }
     }
 }
