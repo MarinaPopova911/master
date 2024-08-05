@@ -6,21 +6,17 @@ import Job.Doctor;
 import Job.Engineer;
 import Job.Loader;
 import Person.Person;
-import Job.Documents;
+import Job.Document;
 
 /**
  * Job
  */
 public class App {
     public static void main(String[] args) {
-        Job cook = new Cook("повар");
-        Job doctor = new Doctor("Врач");
-        Job engineer = new Engineer("Инженер");
-        Job loader = new Loader("Грузчик");
-        Person[] pers = {new Person("Иванов Иван Иванович", 45, cook.toString()),
-                new Person("Петров Петр Петрович", 34, doctor.toString()),
-                new Person("Игнатьев Игнат Игнатович", 56, engineer.toString()),
-                new Person("Александров Александр Александрович", 40, loader.toString())};
+        Person[] pers = {new Person("Иванов Иван Иванович", 45, new Cook(new Document("Сертификат", "I-4BC", "676767"))),
+                new Person("Петров Петр Петрович", 34, new Doctor(new Document("Диплом", "I-5AC", "545454"), new Document("Сертификат", "I-4BB", "3333"))),
+                new Person("Игнатьев Игнат Игнатович", 56, new Engineer(new Document("Диплом", "I-4DC", "77777"))),
+                new Person("Александров Александр Александрович", 40, new Loader())};
 
         for (int i = 0; i < pers.length; i++) {
             System.out.println(pers[i].person());

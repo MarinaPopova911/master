@@ -1,10 +1,17 @@
 package Job;
 
-public class Documents {
+public class Document {
     public String typeDoc;
     public String serialDoc;
     public String numberDoc;
 
+    public Document(String typeDoc, String serialDoc, String numberDoc) {
+        this.typeDoc = typeDoc;
+        this.serialDoc = serialDoc;
+        this.numberDoc = numberDoc;
+    }
+    public Document() {
+    }
     public String getTypeDoc() {
         return typeDoc;
     }

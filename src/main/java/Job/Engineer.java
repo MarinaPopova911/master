@@ -1,26 +1,20 @@
 package Job;
 
-public class Engineer extends Job implements higherEducation {
-    public String nameJob;
-    public String doc;
+import javax.print.Doc;
 
-    public Engineer(String nameJob) {
-        this.nameJob = nameJob;
-    }
-    public Engineer(String nameJob, String doc) {
-        this.nameJob = nameJob;
-        this.doc = doc;
+public class Engineer extends Job implements HigherEducation {
+    public Document diplom;
+
+    public Engineer(Document diplom) {
+        this.diplom = diplom;
     }
 
-    public String getDoc() {
-        Documents doc = new Documents();
-        doc.setTypeDoc("диплом");
-        doc.setNumberDoc("1212");
-        doc.setSerialDoc("II-12AA");
-        return String.format(" документ: %s серия: %s номер: %s", doc.getTypeDoc(), doc.getSerialDoc(), doc.getNumberDoc());
+    public Document getDoc() {
+        return diplom;
     }
+
     @Override
     public String toString() {
-        return nameJob + getDoc();
+        return String.format("инженер , %s серия %s номер: %s", getDoc().getTypeDoc(), getDoc().getSerialDoc(), getDoc().getNumberDoc());
     }
 }
