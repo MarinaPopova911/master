@@ -8,6 +8,8 @@ import Job.Loader;
 import Person.Person;
 import Job.Document;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * Job
  */
