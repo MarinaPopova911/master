@@ -19,14 +19,12 @@ public class Person {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        Person person = (Person) obj;
-        if (dateBirth != person.dateBirth || city != person.city || !(obj instanceof Person)) {
+        if (obj instanceof Person) {
+            Person person = (Person) obj;
+            return (fio.equalsIgnoreCase(person.fio) && dateBirth == person.dateBirth && city == person.city) || this == obj;
+        } else {
             return false;
         }
-        return fio.equalsIgnoreCase(person.fio);
     }
 
     @Override
