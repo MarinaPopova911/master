@@ -1,11 +1,15 @@
 package org.example.singleton;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class AppConnection {
+    private static Logger logger = LoggerFactory.getLogger(AppConnection.class);
     public AppConnection() {
-        System.out.println("Приложение запущено");
+        logger.info("Приложение запущено");
     }
 
-    public void appCompleted() {
-        System.out.println("Приложение выполняется");
+    public void appCompleted(){
+        logger.info("Приложение выполняется");
     }
 }
