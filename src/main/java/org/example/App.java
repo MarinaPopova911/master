@@ -1,11 +1,11 @@
 package org.example;
 
-import org.example.factorypattern.fabric.CheeseFoodAirportFactory;
-import org.example.factorypattern.fabric.ChocolateFoodAirportFactory;
-import org.example.factorypattern.fabric.FoodAirportFactory;
-import org.example.factorypattern.fabric.SausageFoodAirportFactory;
-import org.example.statepattern.NewTaskOrderState;
-import org.example.statepattern.OrderState;
+import org.example.factorypattern.fabric.CheeseFactory;
+import org.example.factorypattern.fabric.ChocolateFactory;
+import org.example.factorypattern.fabric.FoodFactory;
+import org.example.factorypattern.fabric.SausageFactory;
+import org.example.statepattern.NewTaskState;
+import org.example.statepattern.TaskState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,24 +19,24 @@ public class App {
 
     public static void main(String[] args) {
         ArrayList<Person> persons = new ArrayList<>();
-        persons.add(new Person("Elena", new CheeseFoodAirportFactory()));
-        persons.add(new Person("Matvey", new SausageFoodAirportFactory()));
-        persons.add(new Person("Nikolay", new ChocolateFoodAirportFactory()));
+        persons.add(new Person("Elena", new CheeseFactory()));
+        persons.add(new Person("Matvey", new SausageFactory()));
+        persons.add(new Person("Nikolay", new ChocolateFactory()));
         Double sumPrice = 0.0;
         for (Person person : persons) {
             sumPrice += person.preferredFood.createProduct().getPrice();
         }
         logger.info(String.format("Итоговая стоимость %.2f", sumPrice));
-        FoodAirportFactory cheeseFoodAirportFactory = new CheeseFoodAirportFactory();
+        FoodFactory cheeseFoodAirportFactory = new CheeseFactory();
         logger.info(cheeseFoodAirportFactory.createProduct().getName());
 
-        OrderState orderState =
-                new NewTaskOrderState()
+        TaskState orderState =
+                new NewTaskState()
                         .analysisOrderState()
                         .taskWorkOrderState()
                         .doneOrderState();
-        OrderState orderState1 =
-                new NewTaskOrderState()
+        TaskState orderState1 =
+                new NewTaskState()
                         .analysisOrderState()
                         .draftOrderState()
                         .newTaskOrderState()

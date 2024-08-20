@@ -1,6 +1,6 @@
 package org.example.factorypattern.product;
 
-public interface FoodAirportProduct {
+public interface FoodProduct {
     String getName();
     Double getPrice();
 }

@@ -1,6 +1,6 @@
 package org.example.statepattern;
 
-public class DoneOrderState implements OrderState {
+public class DoneTaskState implements TaskState {
     @Override
     public String getNameState() {
         return "Готово";

@@ -1,16 +1,16 @@
 package org.example.statepattern;
 
-public class NewTaskOrderState implements OrderState {
+public class TaskWorkState implements TaskState {
     @Override
     public String getNameState() {
-        return "Новая задача";
+        return "В работе";
     }
 
     public RemoveOrderState removeOrderState() {
         return new RemoveOrderState();
     }
 
-    public AnalysisOrderState analysisOrderState() {
-        return new AnalysisOrderState();
+    public DoneTaskState doneOrderState() {
+        return new DoneTaskState();
     }
 }

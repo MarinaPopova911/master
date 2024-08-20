@@ -1,8 +1,8 @@
 package org.example.factorypattern.product;
 
-public class CheeseAirportProduct implements FoodAirportProduct {
+public class CheeseProduct implements FoodProduct {
     public String getName() {
-        return "молоко, закваска, соль, фермент";
+        return "Сыр";
     }
 
     public Double getPrice() {

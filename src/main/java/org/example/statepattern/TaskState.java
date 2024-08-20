@@ -1,5 +1,5 @@
 package org.example.statepattern;
 
-public interface OrderState {
+public interface TaskState {
     String getNameState();
 }
