@@ -1,0 +1,12 @@
+package org.example.statepattern;
+
+public class DraftTaskState implements TaskState {
+    @Override
+    public String getNameState() {
+        return "draft";
+    }
+
+    public NewTaskState newTaskState() {
+        return new NewTaskState();
+    }
+}
