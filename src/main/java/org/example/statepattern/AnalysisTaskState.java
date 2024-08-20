@@ -6,15 +6,15 @@ public class AnalysisTaskState implements TaskState {
         return "Анализ";
     }
 
-    public DraftTaskState draftOrderState() {
+    public DraftTaskState draftTaskState() {
         return new DraftTaskState();
     }
 
-    public RemoveOrderState removeOrderState() {
-        return new RemoveOrderState();
+    public RemoveTaskState removeTaskState() {
+        return new RemoveTaskState();
     }
 
-    public TaskWorkState taskWorkOrderState() {
+    public TaskWorkState taskWorkTaskState() {
         return new TaskWorkState();
     }
 }

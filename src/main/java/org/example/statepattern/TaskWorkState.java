@@ -6,11 +6,11 @@ public class TaskWorkState implements TaskState {
         return "В работе";
     }
 
-    public RemoveOrderState removeOrderState() {
-        return new RemoveOrderState();
+    public RemoveTaskState removeTaskState() {
+        return new RemoveTaskState();
     }
 
-    public DoneTaskState doneOrderState() {
+    public DoneTaskState doneTaskState() {
         return new DoneTaskState();
     }
 }

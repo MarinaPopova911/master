@@ -32,15 +32,15 @@ public class App {
 
         TaskState orderState =
                 new NewTaskState()
-                        .analysisOrderState()
-                        .taskWorkOrderState()
-                        .doneOrderState();
+                        .analysisTaskState()
+                        .taskWorkTaskState()
+                        .doneTaskState();
         TaskState orderState1 =
                 new NewTaskState()
-                        .analysisOrderState()
-                        .draftOrderState()
-                        .newTaskOrderState()
-                        .removeOrderState();
+                        .analysisTaskState()
+                        .draftTaskState()
+                        .newTaskState()
+                        .removeTaskState();
         logger.info(orderState.getNameState());
         logger.info(orderState1.getNameState());
     }

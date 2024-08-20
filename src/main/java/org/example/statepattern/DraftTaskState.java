@@ -6,7 +6,7 @@ public class DraftTaskState implements TaskState {
         return "draft";
     }
 
-    public NewTaskState newTaskOrderState() {
+    public NewTaskState newTaskState() {
         return new NewTaskState();
     }
 }

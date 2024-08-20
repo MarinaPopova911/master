@@ -6,11 +6,11 @@ public class NewTaskState implements TaskState {
         return "Новая задача";
     }
 
-    public RemoveOrderState removeOrderState() {
-        return new RemoveOrderState();
+    public RemoveTaskState removeTaskState() {
+        return new RemoveTaskState();
     }
 
-    public AnalysisTaskState analysisOrderState() {
+    public AnalysisTaskState analysisTaskState() {
         return new AnalysisTaskState();
     }
 }
