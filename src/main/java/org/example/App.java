@@ -27,8 +27,8 @@ public class App {
             sumPrice += person.preferredFood.createProduct().getPrice();
         }
         logger.info(String.format("Итоговая стоимость %.2f", sumPrice));
-        FoodFactory cheeseFoodAirportFactory = new CheeseFactory();
-        logger.info(cheeseFoodAirportFactory.createProduct().getName());
+        FoodFactory cheeseFactory = new CheeseFactory();
+        logger.info(cheeseFactory.createProduct().getName());
 
         TaskState orderState =
                 new NewTaskState()
