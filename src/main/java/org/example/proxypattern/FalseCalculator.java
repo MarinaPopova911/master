@@ -1,28 +1,25 @@
 package org.example.proxypattern;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-public class FalseCalculator implements CalculatorInterface{
-    private static Logger logger = LoggerFactory.getLogger(FalseCalculator.class);
+public class FalseCalculator implements CalculatorInterface {
     Double c;
-    public void sum(Double a, Double b) {
+
+    public Double sum(Double a, Double b) {
         c = a + b + 0.01;
-        logger.info(String.format("%f + %f = %.2f",a, b, c ));
+        return c;
     }
 
-    public void diff(Double a, Double b) {
+    public Double diff(Double a, Double b) {
         c = a - b - 0.01;
-        logger.info(String.format("%f - %f = %.2f",a, b, c));
+        return c;
     }
 
-    public void multiplication(Double a, Double b) {
+    public Double multiplication(Double a, Double b) {
         c = a * b - 0.01;
-        logger.info(String.format("%f * %f = %.2f",a, b, c));
+        return c;
     }
 
-    public void division(Double a, Double b) {
-        c = (a/b)+ 0.01;
-        logger.info(String.format("%f / %f = %.2f",a, b, c));
+    public Double division(Double a, Double b) {
+        c = (a / b) + 0.01;
+        return c;
     }
 }

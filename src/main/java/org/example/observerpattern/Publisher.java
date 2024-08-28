@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 public class Publisher {
     private static Logger logger = LoggerFactory.getLogger(Publisher.class);
-
-    private ArrayList<String> messages = new ArrayList<String>();
     private ArrayList<ChatInterface> observers = new ArrayList<>();
 
     public void addObserver(ChatInterface observer) {
@@ -20,7 +18,6 @@ public class Publisher {
     }
 
     public void addMessage(String message) {
-        messages.add(message);
         logger.info(String.format("Новое сообщение в чате: %s", message));
         notifyObservers(message);
     }

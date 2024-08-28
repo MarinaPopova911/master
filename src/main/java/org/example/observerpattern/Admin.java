@@ -8,6 +8,6 @@ public class Admin implements ChatInterface {
 
     @Override
     public void update(String message) {
-        logger.info(String.format("Новое сообщение в чате(админ): %s",  message));
+        logger.info(String.format("Новое сообщение в чате(админ): %s", message));
     }
 }
